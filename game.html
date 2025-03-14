@@ -38,14 +38,18 @@
             </div>
 
             <!-- Scratch Embed Container -->
-            <div id="embedContainer" class="bg-white rounded-lg shadow-lg p-4 aspect-video">
-                <iframe id="scratchEmbed" 
-                        class="w-full h-full"
-                        allowtransparency="true" 
-                        frameborder="0" 
-                        scrolling="no" 
-                        allowfullscreen>
-                </iframe>
+            <div id="embedContainer" class="bg-white rounded-lg shadow-lg p-4">
+                <div class="relative" style="padding-top: 75%;">
+                    <iframe id="scratchEmbed" 
+                            class="absolute top-0 left-0 w-full h-full"
+                            allowtransparency="true" 
+                            width="485"
+                            height="402"
+                            frameborder="0" 
+                            scrolling="no" 
+                            allowfullscreen>
+                    </iframe>
+                </div>
             </div>
         </div>
     </main>
@@ -61,23 +65,23 @@
         // Sample game data with Scratch project IDs
         const games = {
             'space-explorer': {
-                id: '104',
+                id: '10128067',  // Solar System
                 title: 'Space Explorer'
             },
             'maze-runner': {
-                id: '105',
+                id: '31903442',  // Simple Maze Game
                 title: 'Maze Runner'
             },
             'cosmic-adventure': {
-                id: '106',
+                id: '104',    // Space themed
                 title: 'Cosmic Adventure'
             },
             'dragons-quest': {
-                id: '107',
+                id: '10015059',  // Dragon game
                 title: "Dragon's Quest"
             },
             'speed-racer': {
-                id: '108',
+                id: '10128368',  // Racing game
                 title: 'Speed Racer'
             }
         };
@@ -93,9 +97,34 @@
             document.title = `${game.title} - Game Showcase`;
             document.getElementById('gameTitle').textContent = game.title;
             
-            // Set the Scratch embed URL
-            const embedUrl = `https://scratch.mit.edu/projects/${game.id}/embed`;
-            document.getElementById('scratchEmbed').src = embedUrl;
+            // Set the Scratch embed URL with proper parameters
+            // Use official Scratch project IDs for demo
+            const projectIds = {
+                'space-explorer': '10128067',  // Solar System
+                'maze-runner': '31903442',    // Simple Maze Game
+                'cosmic-adventure': '104',    // Space themed
+                'dragons-quest': '10015059',  // Dragon game
+                'speed-racer': '10128368'     // Racing game
+            };
+
+            const projectId = projectIds[gameId];
+            if (projectId) {
+                const embedUrl = `https://scratch.mit.edu/projects/${projectId}/embed`;
+                const iframe = document.getElementById('scratchEmbed');
+                iframe.src = embedUrl;
+                
+                // Add error handling for the iframe
+                iframe.onerror = function() {
+                    showError();
+                };
+            } else {
+                showError();
+            }
+
+            function showError() {
+                document.getElementById('embedContainer').style.display = 'none';
+                document.getElementById('errorMessage').style.display = 'block';
+            }
         } else {
             // Show error message if game not found
             document.getElementById('embedContainer').style.display = 'none';
