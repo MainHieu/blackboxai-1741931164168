@@ -1,0 +1,93 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Game Showcase</title>
+    <script src="https://cdn.tailwindcss.com"></script>
+    <link href="https://fonts.googleapis.com/css2?family=Poppins:wght@400;500;600;700&display=swap" rel="stylesheet">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0-beta3/css/all.min.css">
+    <style>
+        body {
+            font-family: 'Poppins', sans-serif;
+        }
+    </style>
+</head>
+<body class="bg-gray-100 min-h-screen">
+    <!-- Header -->
+    <header class="bg-indigo-600 text-white py-6 shadow-lg">
+        <div class="container mx-auto px-4">
+            <h1 class="text-3xl font-bold text-center">
+                <i class="fas fa-gamepad mr-2"></i>Game Showcase
+            </h1>
+        </div>
+    </header>
+
+    <!-- Main Content -->
+    <main class="container mx-auto px-4 py-8">
+        <div class="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-8">
+            <!-- Game 1: Space Explorer -->
+            <a href="game.html?game=space-explorer" class="transform hover:scale-105 transition-transform duration-300">
+                <div class="bg-white rounded-lg shadow-lg overflow-hidden">
+                    <img src="https://via.placeholder.com/400x300/6366f1/ffffff?text=Space+Explorer" alt="Space Explorer" class="w-full h-48 object-cover">
+                    <div class="p-4">
+                        <h2 class="text-xl font-semibold text-gray-800">Space Explorer</h2>
+                        <p class="text-gray-600 mt-2">by Sarah Johnson</p>
+                    </div>
+                </div>
+            </a>
+
+            <!-- Game 2: Maze Runner -->
+            <a href="game.html?game=maze-runner" class="transform hover:scale-105 transition-transform duration-300">
+                <div class="bg-white rounded-lg shadow-lg overflow-hidden">
+                    <img src="https://via.placeholder.com/400x300/4f46e5/ffffff?text=Maze+Runner" alt="Maze Runner" class="w-full h-48 object-cover">
+                    <div class="p-4">
+                        <h2 class="text-xl font-semibold text-gray-800">Maze Runner</h2>
+                        <p class="text-gray-600 mt-2">by Michael Chen</p>
+                    </div>
+                </div>
+            </a>
+
+            <!-- Game 3: Cosmic Adventure -->
+            <a href="game.html?game=cosmic-adventure" class="transform hover:scale-105 transition-transform duration-300">
+                <div class="bg-white rounded-lg shadow-lg overflow-hidden">
+                    <img src="https://via.placeholder.com/400x300/8b5cf6/ffffff?text=Cosmic+Adventure" alt="Cosmic Adventure" class="w-full h-48 object-cover">
+                    <div class="p-4">
+                        <h2 class="text-xl font-semibold text-gray-800">Cosmic Adventure</h2>
+                        <p class="text-gray-600 mt-2">by Emily Rodriguez</p>
+                    </div>
+                </div>
+            </a>
+
+            <!-- Game 4: Dragon's Quest -->
+            <a href="game.html?game=dragons-quest" class="transform hover:scale-105 transition-transform duration-300">
+                <div class="bg-white rounded-lg shadow-lg overflow-hidden">
+                    <img src="https://via.placeholder.com/400x300/7c3aed/ffffff?text=Dragon's+Quest" alt="Dragon's Quest" class="w-full h-48 object-cover">
+                    <div class="p-4">
+                        <h2 class="text-xl font-semibold text-gray-800">Dragon's Quest</h2>
+                        <p class="text-gray-600 mt-2">by Alex Thompson</p>
+                    </div>
+                </div>
+            </a>
+
+            <!-- Game 5: Speed Racer -->
+            <a href="game.html?game=speed-racer" class="transform hover:scale-105 transition-transform duration-300">
+                <div class="bg-white rounded-lg shadow-lg overflow-hidden">
+                    <img src="https://via.placeholder.com/400x300/6d28d9/ffffff?text=Speed+Racer" alt="Speed Racer" class="w-full h-48 object-cover">
+                    <div class="p-4">
+                        <h2 class="text-xl font-semibold text-gray-800">Speed Racer</h2>
+                        <p class="text-gray-600 mt-2">by Lisa Park</p>
+                    </div>
+                </div>
+            </a>
+        </div>
+    </main>
+
+    <!-- Footer -->
+    <footer class="bg-gray-800 text-white py-4 mt-8">
+        <div class="container mx-auto px-4 text-center">
+            <p>&copy; 2024 Game Showcase. All rights reserved.</p>
+        </div>
+    </footer>
+</body>
+</html>
