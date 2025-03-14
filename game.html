@@ -1,0 +1,106 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Game Details - Game Showcase</title>
+    <script src="https://cdn.tailwindcss.com"></script>
+    <link href="https://fonts.googleapis.com/css2?family=Poppins:wght@400;500;600;700&display=swap" rel="stylesheet">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0-beta3/css/all.min.css">
+    <style>
+        body {
+            font-family: 'Poppins', sans-serif;
+        }
+    </style>
+</head>
+<body class="bg-gray-100 min-h-screen">
+    <!-- Header -->
+    <header class="bg-indigo-600 text-white py-6 shadow-lg">
+        <div class="container mx-auto px-4 flex justify-between items-center">
+            <a href="index.html" class="flex items-center text-white hover:text-gray-200 transition-colors">
+                <i class="fas fa-arrow-left mr-2"></i>
+                Back to Gallery
+            </a>
+            <h1 class="text-2xl font-bold" id="gameTitle">Game Details</h1>
+            <div class="w-24"></div> <!-- Spacer for centering -->
+        </div>
+    </header>
+
+    <!-- Main Content -->
+    <main class="container mx-auto px-4 py-8">
+        <!-- Game Container -->
+        <div class="max-w-4xl mx-auto">
+            <!-- Error Message (hidden by default) -->
+            <div id="errorMessage" class="hidden bg-red-100 border border-red-400 text-red-700 px-4 py-3 rounded relative mb-4" role="alert">
+                <strong class="font-bold">Error!</strong>
+                <span class="block sm:inline"> Game not found.</span>
+                <a href="index.html" class="underline">Return to gallery</a>
+            </div>
+
+            <!-- Scratch Embed Container -->
+            <div id="embedContainer" class="bg-white rounded-lg shadow-lg p-4 aspect-video">
+                <iframe id="scratchEmbed" 
+                        class="w-full h-full"
+                        allowtransparency="true" 
+                        frameborder="0" 
+                        scrolling="no" 
+                        allowfullscreen>
+                </iframe>
+            </div>
+        </div>
+    </main>
+
+    <!-- Footer -->
+    <footer class="bg-gray-800 text-white py-4 mt-8">
+        <div class="container mx-auto px-4 text-center">
+            <p>&copy; 2024 Game Showcase. All rights reserved.</p>
+        </div>
+    </footer>
+
+    <script>
+        // Sample game data with Scratch project IDs
+        const games = {
+            'space-explorer': {
+                id: '104',
+                title: 'Space Explorer'
+            },
+            'maze-runner': {
+                id: '105',
+                title: 'Maze Runner'
+            },
+            'cosmic-adventure': {
+                id: '106',
+                title: 'Cosmic Adventure'
+            },
+            'dragons-quest': {
+                id: '107',
+                title: "Dragon's Quest"
+            },
+            'speed-racer': {
+                id: '108',
+                title: 'Speed Racer'
+            }
+        };
+
+        // Get the game ID from URL parameters
+        const urlParams = new URLSearchParams(window.location.search);
+        const gameId = urlParams.get('game');
+
+        // Update the page based on the game ID
+        if (gameId && games[gameId]) {
+            const game = games[gameId];
+            // Update page title
+            document.title = `${game.title} - Game Showcase`;
+            document.getElementById('gameTitle').textContent = game.title;
+            
+            // Set the Scratch embed URL
+            const embedUrl = `https://scratch.mit.edu/projects/${game.id}/embed`;
+            document.getElementById('scratchEmbed').src = embedUrl;
+        } else {
+            // Show error message if game not found
+            document.getElementById('embedContainer').style.display = 'none';
+            document.getElementById('errorMessage').style.display = 'block';
+        }
+    </script>
+</body>
+</html>
